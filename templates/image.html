@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>BG Chat File Sharing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        * {
+            margin: 0px;
+            font-family:'Poppins', sans-serif;
+            padding: 0px;
+        }
+        body,
+        .form-control{
+            background:lavender;
+            border:none;
+            box-shadow:none;
+
+        }
+        .header {
+            margin-top:0px;
+            padding:0px;
+            width:100%;
+            height:45px;
+            background: #eba336;
+        }
+
+        
+
+        .btn {
+            color: white;
+            background: #eba336;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: #ffcc66;
+            color: black;
+        }
+
+        input[type=text]{
+            width:500px;
+            font-weight:700;
+            border-radius:2px;
+            border:1px solid black;
+
+
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="header"><h1 align="center">BG Chat File Sharing</h1></div>
+    <div class="container">
+        <div class="row">
+            <h2>The file you about to upload will be saved in our system and ready to share.</h2>
+
+                
+
+            <form method="post" action="/upload" enctype="multipart/form-data">
+                <dl>
+                    <p>
+                        <input type="file" name="file" class="form-control" autocomplete="off" required>
+                    </p>
+                </dl>
+                <p>
+                    <input type="submit" value="Submit" class="btn btn-info">
+
+                </p>
+            </form>
+
+            <p>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                {% endwith %}
+            </p>
+            <input type="text" value='<a href="/static/uploads/{{filename}}" target="_blank">Shared File</a>' />
+           
+        </div>
+    </div>
+</body>
+</html>

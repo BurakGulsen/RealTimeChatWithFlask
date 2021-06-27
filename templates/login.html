@@ -1,0 +1,35 @@
+<!-- Store this code in 'login.html' file inside the 'templates' folder -->
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Login | BG CHAT </title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	
+</head>
+	<body>
+		<p align="center">
+			<div class="wrapper">
+				<div class="header">
+					Login
+				</div>
+				<form action="{{ url_for('login') }}" method="post">
+					<div class="msg">{{ msg }}</div>
+					<div class="box">
+						<input id="username" class="textbox" name="username" type="text" required placeholder="Username">
+					</div>
+					<div class="box">
+						<input id="password" class="textbox" name="password" type="password" required placeholder="Password">
+					</div>
+					<div class="box">
+						<input type="submit" class="btn" value="Sign In" />
+					</div>
+					<div class="register-link">
+						Don't have an account? <a href="{{url_for('register')}}">Sign Up Here!</a>
+					</div>
+				</form>
+			</div>
+		</p>
+
+	</body>
+</html>
